@@ -571,6 +571,10 @@ class _AddOrderScreenState extends State<AddOrderScreen> {
           ElevatedButton(
             onPressed: () {
               Navigator.pop(context);
+              for (OrderItem item in orderItems) {
+                item.isExpanded = false;
+                setState(() {});
+              }
               ScaffoldMessenger.of(context).showSnackBar(
                 const SnackBar(
                   content: Text('Order confirmed successfully!'),
